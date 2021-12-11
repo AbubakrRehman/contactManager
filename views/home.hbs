@@ -1,0 +1,33 @@
+{{>navbar}}
+<a class="btn btn-primary" href="/add_user" role="button"><i class="bi bi-plus-lg"></i>Add</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each rows}}
+        <tr>
+            <th scope="row">{{this.id}}</th>
+            <td>{{this.first_name}}</td>
+            <td>{{this.last_name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.phone}}</td>
+            <td>
+                
+                <a class="btn btn-outline-success" href="/view_user/{{this.id}}" role="button"><i class="bi bi-eye"></i>View</a>
+                <a class="btn btn-outline-primary" href="/edit_user/{{this.id}}" role="button"><i class="bi bi-pen"></i>Edit</a>
+                <a class="btn btn-outline-danger" href="/delete_user/{{this.id}}" role="button"><i class="bi bi-trash"></i>Delete</a>
+             
+            </td>
+        </tr>
+        {{/each}}
+
+    </tbody>
+</table>
