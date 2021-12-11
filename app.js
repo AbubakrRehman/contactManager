@@ -249,7 +249,7 @@ app.get("/logout",redirectLogin,(req,res)=>{
 
 app.get("/profile",redirectLogin,(req,res)=>{
     let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
-    res.render('profile');
+    res.render('profile',{userdata});
 });
 
 app.get("/page2",(req,res)=>{
