@@ -15,8 +15,7 @@ app.use(session({
     secret:"abu",
     cookie:{maxAge:900000},
     saveUninitialized:false,
-    store,
-    resave:false
+    store
 
 }));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -28,14 +27,13 @@ const port=process.env.PORT || 2001;
 
 var mysql2      = require('mysql2');
 var connection = mysql2.createConnection({
-  host     : 'db-mysql-blr1-49817-do-user-10215911-0.b.db.ondigitalocean.com',
-  user     : 'doadmin',
-  password : 'GtCoH30d4BBgng7g',
-  database : 'defaultdb',
-  port:25060
+  host     : 'localhost',
+  user     : 'root',
+  password : 'Abubakr@7086',
+  database : 'my_db'
 });
 
-connection.connect(function(err){
+connection.connect(function(err) {
     if (err) {
       console.error('error connecting: ' + err.stack);
       return;
