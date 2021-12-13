@@ -252,10 +252,7 @@ app.get("/profile",redirectLogin,(req,res)=>{
     res.render('profile',{userdata});
 });
 
-app.get("/page2",(req,res)=>{
-    let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
-    res.render('page2',{userdata});
-});
+
 
 app.get("*",(req,res)=>{
     //let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
