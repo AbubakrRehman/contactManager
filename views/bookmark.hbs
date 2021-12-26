@@ -1,7 +1,5 @@
 {{>navbar}}
-<div class="d-flex flex-row-reverse bd-highlights py-2">
-    <a class="btn btn-primary" href="/add_user" role="button"><i class="bi bi-plus-lg"></i></a>
-</div>
+
 
 
 
@@ -50,31 +48,34 @@
 
     </tbody>
 </table> --}}
-<div>
+<div >
     {{#each rows}}
-    <a href="/view_user/{{this.id}}" role="button" style="text-decoration-line: none;display:block">
-        <div class="card" style="margin-bottom: 3px;padding:0%">
+     <a  href="/view_user/{{this.id}}" role="button" style="text-decoration-line: none;">
+                       
+    <div class="col-sm-6" style="display:inline-block;">
+        <div class="card">
             <div class="card-body">
-                <h6 class="card-title">{{this.first_name}} {{this.last_name}}</h6>
+                <h2 class="card-title">{{this.first_name}} {{this.last_name}}</h2>
                 {{!-- <h5>{{this.email}}</h5>
                 <h5>{{this.phone}}</h5> --}}
-
-
-                <a style="display:inline;" class="btn btn-outline-danger" href="/delete_user/{{this.id}}"
-                    role="button"><i class="bi bi-trash"></i></a>
+              
+               
+               
+                <a class="btn btn-outline-danger" href="/delete_user/{{this.id}}" role="button"><i
+                        class="bi bi-trash"></i></a>
                 {{#if this.status}}
                 <form action="/unmark/{{this.id}}" method="POST" style="display:inline;">
-                    <button style="display:inline" type="submit" class="btn btn-outline-dark"><i class="bi bi-star-fill"></i></button>
+                    <button type="submit" class="btn btn-outline-dark"><i class="bi bi-star-fill"></i></button>
                 </form>
                 {{else}}
                 <form action="/mark/{{this.id}}" method="POST" style="display:inline;">
-                    <button style="display:inline" type="submit" class="btn btn-outline-dark"><i class="bi bi-star"></i></button>
+                    <button type="submit" class="btn btn-outline-dark"><i class="bi bi-star"></i></button>
                 </form>
                 {{/if}}
 
             </div>
         </div>
-
+    </div>
 
     </a>
     {{/each}}

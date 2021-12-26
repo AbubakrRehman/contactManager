@@ -46,6 +46,12 @@ router.get("/logout",redirectLogin,usersController.destroySessionNCookie);
 
 router.get("/profile",redirectLogin,contactsController.getUserDetails);
 
+router.post("/unmark/:id",redirectLogin,contactsController.unMark);
+
+router.post("/mark/:id",redirectLogin,contactsController.mark);
+
+router.get("/bookmark",redirectLogin,contactsController.bookmark);
+
 
 
 router.get("*",(req,res)=>{

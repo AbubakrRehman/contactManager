@@ -17,6 +17,7 @@
 {{#each rows}}
 <form method="POST" action="/edit_user/{{this.id}}">
     {{>user_form}}
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a class="btn btn-primary" href="/home" role="button">Cancel</a>
 </form>
 {{/each}}

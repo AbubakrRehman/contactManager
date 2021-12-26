@@ -10,7 +10,7 @@ exports.getLoginPage=(req,res)=>{
     let error_msg=req.query.error_msg;
    // let login_error=JSON.parse(store.sessions[req.sessionID]).login_error;
    //let login_error=req.session.login_error;
-    return res.render('login',{error_msg:error_msg});
+    return res.render('login',{error_msg:error_msg,layout:'loginn'});
 }
 
 exports.setSession=(req,res)=>{
@@ -40,7 +40,7 @@ exports.setSession=(req,res)=>{
 
 exports.getRegistrationPage=(req,res)=>{
     let error_msg=req.query.error_msg;
-    res.render('register',{error_msg:error_msg});
+    res.render('register',{error_msg:error_msg,layout:'signupp'});
 }
 
 exports.registerUser=(req,res)=>{
@@ -58,7 +58,7 @@ exports.registerUser=(req,res)=>{
             //req.session.isAuthenticated=true;
             //res.redirect(`/home?email=${req.session.userdata.email}`);
             const query1='INSERT INTO users(username,email,password) VALUES(?,?,?)';
-            const query2='CREATE TABLE ?? (id INT PRIMARY KEY AUTO_INCREMENT,first_name TEXT,last_name TEXT,email TEXT,phone BIGINT,comments TEXT,status TEXT)';
+            const query2=`CREATE TABLE ?? (id INT PRIMARY KEY AUTO_INCREMENT,first_name TEXT,last_name TEXT,email TEXT,phone BIGINT,comments TEXT,status INT)`;
         
 
               connection.query(query1,[username,email,password], function (error, results, fields) {

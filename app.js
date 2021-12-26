@@ -9,9 +9,11 @@ const usersController=require('./server/controllers/usersController.js');
 
 const {store}=require('./server/controllers/sessionStore.js');
 const app=express();
+app.use(express.static('public'));
+
 app.engine('hbs', exphbs);
 app.set('view engine', 'hbs');
-app.set('view options', { layout: 'main' });
+app.set('view options',{layout:"main"});
 
 app.use(cookieParser());
 app.use(session({
@@ -25,7 +27,7 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended:false}));
 
 
-const port=process.env.PORT || 2001;
+const port=process.env.PORT || 80;
 
 
 

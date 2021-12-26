@@ -13,6 +13,16 @@ exports.getAllContacts = (req, res) => {
         });
 }
 
+exports.bookmark = (req, res) => {
+    let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
+    let username=userdata.username;
+        connection.query('SELECT * FROM ?? WHERE status=1', [username],(err, rows) => {
+            if (!err)
+                res.render('bookmark', { rows });
+            else
+                console.log(err);
+        });
+}
 
 exports.getContactBySearchText=(req,res)=>{
     let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
@@ -33,7 +43,7 @@ exports.addContact=(req,res)=>{
     const {first_name,last_name,email,phone,comments}=req.body;
     let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
     let username=userdata.username;
-    connection.query('INSERT INTO ?? SET first_name=?,last_name=?,email=?,phone=?,comments=?',[username,first_name,last_name,email,phone,comments], (err, rows) => {
+    connection.query('INSERT INTO ?? SET first_name=?,last_name=?,email=?,phone=?,comments=?,status=0',[username,first_name,last_name,email,phone,comments], (err, rows) => {
         if (!err)
             res.render('add_user',{alert:'User added successfully!!!'});
         else
@@ -97,4 +107,27 @@ exports.deleteContact=(req,res)=>{
 exports.getUserDetails=(req,res)=>{
     let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
     res.render('profile',{userdata});
+}
+
+exports.unMark=(req,res)=>{
+    let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
+    let username=userdata.username;
+    
+    connection.query('UPDATE ?? SET status=0 WHERE id=?',[username,req.params.id], (err, rows) => {
+        if (err) console.log(err);
+        res.redirect("/home");
+    });
+    
+}
+
+
+exports.mark=(req,res)=>{
+    let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
+    let username=userdata.username;
+    
+    connection.query('UPDATE ?? SET status=1 WHERE id=?',[username,req.params.id], (err, rows) => {
+        if (err) console.log(err);
+        res.redirect("/home");
+    });
+    
 }
