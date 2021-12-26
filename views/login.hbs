@@ -1,18 +1,29 @@
+<h2>Login Form</h2>
+
 <form action="/" method="POST">
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input required name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input required name="password" type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-  
-    <button type="submit" class="btn btn-primary">
-        Login
-    </button>
+  <div class="imgcontainer">
+    <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+        
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
 </form>
+<hr>
 <a href="/register" class="link-primary">Create Account</a>
 {{#if error_msg}}
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
