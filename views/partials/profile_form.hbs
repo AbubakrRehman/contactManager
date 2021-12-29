@@ -1,5 +1,6 @@
 <form method="POST" action="/profile">
-  <div class="mb-3">
+<fieldset disabled> 
+   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">User Name</label>
     <input value="{{userdata.username}}" name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     
@@ -18,4 +19,6 @@
  
 
   <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+
 </form>
