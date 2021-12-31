@@ -1,3 +1,27 @@
 {{>navbar}}
-{{>profile_form}}
+{{!-- {{>profile_form}} --}}
+<form method="POST" action="/profile">
+<fieldset disabled> 
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">User Name</label>
+    <input value="{{userdata.username}}" name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input value="{{userdata.email}}" name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  </div>
+
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Password</label>
+    <input value="{{userdata.password}}" name="password" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  </div>
+ 
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+
+</form>
 <a class="btn btn-outline-primary" href="/profile_edit" role="button"><i class="bi bi-pen"></i></a>
