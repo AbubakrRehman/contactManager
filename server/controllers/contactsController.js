@@ -109,6 +109,14 @@ exports.getUserDetails=(req,res)=>{
     res.render('profile',{userdata});
 }
 
+
+
+exports.editUserDetailsPage=(req,res)=>{
+    let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
+    res.render('profile_edit',{userdata});
+}
+
+
 exports.unMark=(req,res)=>{
     let userdata=JSON.parse(store.sessions[req.sessionID]).userdata;
     let username=userdata.username;

@@ -46,6 +46,8 @@ router.get("/logout",redirectLogin,usersController.destroySessionNCookie);
 
 router.get("/profile",redirectLogin,contactsController.getUserDetails);
 
+router.get("/edit_profile",redirectLogin,contactsController.editUserDetailsPage);
+
 router.post("/unmark/:id",redirectLogin,contactsController.unMark);
 
 router.post("/mark/:id",redirectLogin,contactsController.mark);
