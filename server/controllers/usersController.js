@@ -15,7 +15,7 @@ exports.getLoginPage=(req,res)=>{
 
 exports.setSession=(req,res)=>{
     let {username,password}=req.body;
-    const query='SELECT * FROM users WHERE username=? AND password=? ';
+    const query="SELECT * FROM users WHERE username=? AND password=? ";
     connection.query(query,[username,password] ,function (error, results) {
         if (error) throw error;
         if(results.length===0){
