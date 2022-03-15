@@ -3,6 +3,13 @@
 
 Lets signees/users manage (add, update, delete) their contact list. Developed using MVC design pattern. User specific dataset. 
 
+## Tech Stack
+
+**Client:** Bootstrap5
+
+**Server:** Node, Express , MySql
+
+
 ## Deployment
 
 To deploy this project run
@@ -34,6 +41,7 @@ Start the server
 ```bash
   npm run start
 ```
+
 
 
 
